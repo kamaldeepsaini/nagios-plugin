@@ -114,7 +114,8 @@ This plugin indicates status of documents getting re-indexed. Value of this plug
 
 **check_jboss_ds_count.py [Standalone mode only]**
 
-This Jboss plugin checks active connection pool status for data sources and XA data sources. User can set warning and critical percentage as per requirement. It accepts 8 parameters in order to work properly and all eight parameters are mandatory.
+This Jboss plugin checks active connection pool status for data sources and XA data sources of jboss running is standalone mode. User can set warning and critical percentage as per requirement. It accepts 8 parameters in order to work properly and all eight parameters are mandatory.
+
 > - --host| -H =  IP address of the host machine.
 > - --port | -P = Port number of Jboss host
 > - --user | -u = User name for Jboss management UI
@@ -127,6 +128,31 @@ This Jboss plugin checks active connection pool status for data sources and XA d
 **Example**
 
     check_jboss_ds_count.py -H localhost -P 9990 -u gurvinder -p hell1wor1d! -t data-source -n ExampleDS -w 50 -c 80
+
+**Output**
+
+    INFO:Active Count=0, Available Count=20, Max Used Count=0| active_count=0, available_count=20, maxused_count=0
+
+**check_jboss_ds_count_dn.py [Domain mode only]**
+
+This Jboss plugin checks active connection pool status for data sources and XA data sources of jboss running is domain mode. User can set warning and critical percentage as per requirement. It accepts 8 parameters in order to work properly and all eight parameters are mandatory.
+
+> --server | -S = IP address of the host machine
+> - --host | -H = JBOSS Server host, e.g master,slave
+> - --port | -P = Port number of Jboss host
+> - --servername | -s = BOSS Server type, e.g  server-three
+> - --user | -u = User name for Jboss management UI
+> - --password | -p = Password for Jboss management console
+> - --dstype | -t = Name of datasource type. There are only two types of data sources user can opt [e.g data-source or xa-data-source]
+> - --dsname | -n = Name of data source, for example. ExampleDS
+> - --warning | -w = Warning percentage, for example 50
+> - --critical | -c = Critical percentage, for example 80
+
+
+
+**Example**
+
+    check_jboss_ds_count_dn.py -S localhost -P 9990 -u kamal -p hell1wor1d! -H master -s server-three -t data-source -n ExampleDS -w 50 -c 80
 
 **Output**
 
