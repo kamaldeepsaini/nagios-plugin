@@ -4,12 +4,13 @@
 Project     :       JBOSS EAP DS Connection Count
 Version     :       0.1
 Author      :       Gurvinder
+Editor      :       Kamaldeep Singh
 Summary     :       This program is a nagios plugin that check total active connection count for particular DS
 Dependency  :       Linux/nagios/Python-2.6
  
 Usage :
 ```````
-shell> python check_jboss_ds_count.py
+shell> python check_jboss_ds_count_dn.py
 '''
  
 #-----------------------|
